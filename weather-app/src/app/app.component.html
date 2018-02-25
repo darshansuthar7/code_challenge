@@ -1,14 +1,30 @@
 <header>
-    <div class="container">
-        <h1>Open Weather API Example</h1>
-    </div>
+   <div class="container">
+       <h1>Open Weather API Demo</h1>
+   </div>
 </header>
 <section>
-    <div class="container action_container">
-    </div>
+   <div class="container action_container">
+       <p class="mg_t15">Select any day to see more</p>
+       <div class="row action_bar">
+           <a href="javascript:;" *ngFor="let dateStr of dates" class="col-2 action_item mg_v40 js_action_item" 
+               title="Click to see whole report" (click)="showWeather(dateStr)">
+               <strong class="temp">{{dateStr}}</strong>
+           </a>
+       </div>
+   </div>
 </section>
-<section>
-    <div class="">
-        <h3></h3>
-    </div>
+<section class="data_section">
+   <div class="container data_container">
+       <h3 class="js_caption mg_t15">Forecard of this date {{forecastDate}}</h3>
+       <ul class="data_item_group js_data_group">
+           <li *ngFor="let hourData of hourlyData" class="data_item card mg_t15 mg_r15 mg_b15">
+               <strong class="caption">{{hourData.dt_txt}}</strong>
+               <p>Temprature : <strong>{{hourData.main.temp}} K</strong></p>
+               <p>Minimum Temprature : <strong>{{hourData.main.temp_min}} K</strong></p>
+               <p>Maximum Temprature : <strong>{{hourData.main.temp_max}} K</strong></p>
+               <p>Pressure : <strong>{{hourData.main.pressure}} hPa</strong></p>
+           </li>
+       </ul>
+   </div>
 </section>
