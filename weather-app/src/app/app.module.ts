@@ -1,9 +1,9 @@
-Hi
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule }    from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { WeatherService } from './WeatherService';
 
 @NgModule({
  declarations: [
@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
    BrowserModule,
    HttpClientModule
  ],
+ providers: [WeatherService],
  bootstrap: [AppComponent]
 })
 export class AppModule { }
